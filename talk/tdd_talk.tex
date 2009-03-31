@@ -1,0 +1,411 @@
+% -*- latex -*-
+\documentclass[landscape]{slides}
+
+%\usepackage[landscape,pdftex]{geometry}  % this creates landscape mode in 
+                                         % pdflatex, It is mutually exclusive
+                                         % with \documentclass[landscape] 
+
+\usepackage{url}                         % web addresses
+\usepackage{graphicx}
+\usepackage{color}                       % color glyphs
+% define some colors
+\definecolor{mediumGray}{gray}{0.5}
+\definecolor{lightGray}{gray}{0.7}
+\renewcommand{\title}[1]{{\large\bfseries #1}}
+
+\usepackage{array}                       % extra row separation
+\setlength{\extrarowheight}{10pt}        % replace bullets with vspace
+
+
+\newenvironment{itemiz}%
+  {\begin{list}{}{\raggedright
+      \setlength{\itemsep}{2pt}%
+      \setlength{\parskip}{4pt}\setlength{\parsep}{2pt}}}%
+  {\end{list}}%
+
+\setlength{\voffset}{-0.5in}
+\setlength{\textheight}{7.0in}
+\setlength{\hoffset}{-0.5in}
+\setlength{\textwidth}{9.0in}
+
+\begin{document}\raggedright
+
+  \begin{titlepage}
+    \thispagestyle{empty}
+     {\bfseries\Large Ongoing Research Into Numerical Simulation 
+       of Fluid Flows Utilizing Software Development Practices}\\
+     \vfill
+	 {\large FUN3D Software Development Team} \\
+	 {\itshape NASA, Hampton, Virginia}
+	 \vfill
+	     {ACDL Seminar\\
+	       by MikePark@MIT.Edu Mike.Park@NASA.Gov\\
+	       24 September 2004}\\
+  \end{titlepage}
+
+  \begin{slide}
+    \title{FUN3D}
+
+    Originated by Kyle Anderson, Eric Nielsen, and others
+
+    Extended by High Energy Flow Solver Synthesis (HEFSS) effort
+
+    An element of the Fast Adaptive AeroSpace Tools (FAAST) project
+
+    Detailed in \emph{Breakthroughs in large-scale computational simulation
+    and design} {\tiny (NASA/TM 2002-211747)}
+
+    Unstructured-grid analysis and design across speed range:\\
+    Incompressible, compressible, hyper sonic reacting gas
+
+    \begin{tabular}{rl}
+      FUN3D & unstructured-grid, incompressible/compressible \\
+      LAURA & structured-grid, external hypersonics \\
+      VULCAN & structured-grid, internal hypersonics 
+    \end{tabular}
+  \end{slide}
+ 
+ \begin{slide}
+  \title{Why?}
+  \begin{itemiz}
+   \item Multidisciplinary problems require multiple discipline
+   experts, a large infrastructure, and standard interfaces
+   \vspace{6pt}
+   \item Reduce time from concept to application for vehicles and algorithms
+   \vspace{6pt}
+   \item Mobility to respond to unforeseen challenges and increase
+   software lifespan
+  \end{itemiz}
+
+  \title{Research capabilities in a ``production'' code}
+  \begin{itemiz}
+    \item Infrastructure to evaluate algorithms on large problems
+    \item Flexibility for implementing research algorithms 
+    \item Stability to suit time-sensitive application needs and to
+    release to outside customers
+    \item Avoid being encumbered by high-ceremony software development process
+  \end{itemiz}
+ \end{slide}
+ 
+ \begin{slide}
+  \title{Software Versioning System (Control)}
+  \begin{itemiz}
+    \item Often overlooked or under emphasized
+    \item Zeroth principle of software engineering
+    \item Learning to work with it and not against it is key to team
+    programming (glue)
+    \item Safety net
+    \item Large impact on ``Truck Number''
+    \item Convenient for accounts on multiple machines
+    \item Required for automated testing
+    \item Not just for software anymore
+      \begin{itemiz} 
+      \item homework, presentations, configuration files, home accounts
+      \end{itemiz}
+    \item CVS - \url{https://www.cvshome.org/}
+    \item Subversion - \url{http://subversion.tigris.org/}
+  \end{itemiz}
+ \end{slide}
+ 
+ \begin{slide}
+  \title{Software development practices}
+   \setlength{\unitlength}{0.1in}%
+   \begin{picture}(10,10)(-5,10)
+     \put(0,0){\line(3,5){5}}
+     \put(0,0){\line( 1, 0){10}}
+     \put(10,0){\line(-3, 5){5}}
+     \put(0,9){\makebox(0,0)[lb]{Ad hoc}}
+     \put(9,-3.4){\makebox(0,0)[lb]{Agile}}
+     \put(-10,-3){\makebox(0,0)[lb]{Plan-driven}}
+     \put(-3,-6){\makebox(0,0)[lb]{\tiny ``Kleb Triangle''}}
+   \end{picture}
+  \begin{itemiz}
+  \item Ad hoc
+    \begin{itemiz} 
+    \item ``Code and Fix''
+    \end{itemiz}
+  \item Plan-driven
+    \begin{itemiz} 
+    \item Predictive, ``Big up front design''
+    \item Delivering to the original contract
+    \item Capability Maturity Model (CMM), CMMI 
+    \end{itemiz}
+  \item Agile
+    \begin{itemiz} 
+    \item Adaptive, ``Evolutionary design''
+    \item Recognizes software development an empirical process that
+      can not always be defined
+    \item Extreme Programming
+    \end{itemiz}
+  \end{itemiz}
+ \end{slide}
+
+ \begin{slide}
+  \title{The Agile Manifesto \normalfont\normalsize values}
+  \setlength{\topsep}{0pt}\setlength{\parskip}{5pt}
+   \begin{itemiz}
+   \item \normalsize individuals and interactions
+   \item \small over processes and tools
+   \item \normalsize working software
+   \item \small over comprehensive documentation
+   \item \normalsize responding to change
+   \item \small over following a plan
+   \item \normalsize customer collaboration
+   \item \small over contract negotiation
+  \end{itemiz}
+   \normalsize 
+ \end{slide}
+ 
+ \begin{slide}
+  \title{Extreme Programming \normalfont\normalsize values}
+  \setlength{\topsep}{0pt}\setlength{\parskip}{5pt}
+  \begin{itemiz}
+   \item communication
+   \item simplicity
+   \item feedback
+   \item courage
+  \end{itemiz}
+ \end{slide}
+ 
+ \begin{slide}
+  \title{Extreme Programming Practices}
+  \begin{itemiz}
+    \item[\textit{Sustainable pace}]
+      {\small productivity does not increase with hours worked.}
+    \item[\textit{Metaphor}]
+      {\small guide all development with a simple shared story of how
+      the whole system works.}
+    \item[\textit{Coding standard}]
+      {\small\ write all code in accordance with rules emphasizing
+      communication through the code.}
+    \item[\textit{Collective ownership}]
+      {\small anyone can change any code anywhere in the system at any time.}
+    \item[\textit{Continuous integration}]
+      {\small integrate and build the system many times a day.}
+    \item[\textcolor{mediumGray}{\textit{Small releases}}]
+      {\small release new versions on a very short cycle.}
+   \end{itemiz}
+ \end{slide}
+  
+ \begin{slide}
+  \title{Extreme Programming Practices \small(concluded)}
+  \begin{itemiz}
+    \item[\textcolor{mediumGray}{\textit{Test-driven development}}]
+      {\small any program feature without an automated test simply does
+	not exist.}
+    \item[\textcolor{mediumGray}{\textit{Refactoring}}]
+      {\small restructure the system without
+	changing its behavior.}
+    \item[\textcolor{mediumGray}{\textit{Simple design}}]
+      {\small system should be designed as simply as possible at any
+	given moment.}
+    \item[\textcolor{mediumGray}{\textit{Pair programming}}]
+      {\small two programmers work together at one computer on the same
+	task.}
+    \item[\textcolor{mediumGray}{\textit{On-site customer}}]
+      {\small include a real, live user on the team.}  
+    \item[\textcolor{lightGray}{\textit{Planning game}}]
+      {\small combine business priorities and technical estimates to
+	determine scope of next release.}
+  \end{itemiz}
+ \end{slide}
+
+ \begin{slide}
+  \title{FUN3D Development}
+  \begin{itemiz}
+    \item[\textit{Sustainable pace}]
+      {\small work $\sim$40 hour weeks.}
+    \item[\textit{Metaphor}]
+      {\small engineering and scientific vocabulary ($\rho$, $u$, $v$, $w$).}
+    \item[\textit{Coding standard}]
+      {\small\ published to aid portability, automated parsing,
+               and collective ownership.}
+    \item[\textit{Collective ownership}]
+      {\small routinely fix minor bugs or extend methods created 
+	by other people. Anyone is allowed to modify any file at 
+	anytime through CVS.}
+    \item[\textit{Continuous integration}]
+      {\small very slow: Linux builds every 2-3 hours, 
+	SGI builds every 8-9 hours.}
+    \item[\textcolor{mediumGray}{\textit{Small releases}}]
+      {\small application members of the team use (CVS), 
+              formally 2-3 times a year}
+   \end{itemiz}
+ \end{slide}
+  
+ \begin{slide}
+  \title{FUN3D Development \small(concluded)}
+  \begin{itemiz}
+    \item[\textcolor{mediumGray}{\textit{Test-driven development}}]
+      {\small limited use in flow solver, 
+	extensive use in scripting and grid adaptation.}
+    \item[\textcolor{mediumGray}{\textit{Refactoring}}]
+      {\small done only when necessary, extremely difficult, 
+	painful, and nerve-racking without unit tests.}
+    \item[\textcolor{mediumGray}{\textit{Simple design}}]
+      {\small born as a result of refactoring and pair programming.}
+    \item[\textcolor{mediumGray}{\textit{Pair programming}}]
+      {\small limited to mostly debugging, knowledge transfer; 
+	impeded by scheduling conflicts. }
+    \item[\textcolor{mediumGray}{\textit{On-site customer}}]
+      {\small research: we are our own customers?}  
+    \item[\textcolor{lightGray}{\textit{Planning game}}]
+      {\small comes more naturally in pair programming scheduling. }
+  \end{itemiz}
+ \end{slide}
+
+ \begin{slide}
+  \title{Communication}
+  \begin{itemiz}
+  \item Collocation
+  \item Email list
+  \item WikiWikiWeb --  \url{http://c2.com/cgi/wiki?WelcomeVisitors}
+  \end{itemiz}
+  \title{Scrum status meetings}
+  \begin{itemiz}
+  \item What they {\bf did} since last meeting
+  \item What they will {\bf do} by next meeting
+  \item What got {\bf in the way} (impediments)
+  \end{itemiz}
+  \begin{itemiz}
+    \item Quick and efficient meeting style
+    \item Reduces the worst management sin (wasting people's time)
+    \item The impediments is the often the hardest to express, but the
+    most important.
+  \end{itemiz}
+ \end{slide}
+ 
+ \begin{slide}
+   \title{Software Testing} \\
+   \emph{All of these can (and should) be automated!}
+   \begin{description}
+   \item[Programmer's] I want a function that adds vectors, does 
+   $f([1, 2], [3, 4])$ return $[4, 6]$? (unit tests)
+   \item[Integration] Does my whole system compile and work together?
+   \item[Regression] My code gave answer $x$ yesterday, does it give
+   answer $x$ today?
+   \item[Verification] My code is supposed to be second-order accurate
+   in space. What happens when I change the element size?
+   \item[Validation] Does my code give the same answer as a wind
+   tunnel or fight test measurement?
+   \end{description}
+ \end{slide}
+ 
+ \begin{slide}
+   \title{Unit Testing Frameworks}
+   \begin{itemiz}
+   \item Goals
+     \begin{itemiz}
+     \item Interface must allow for the easy creation and management of tests
+     \item Minimal additional effort over writing the actual code
+     (benefit--cost)
+     \item Enable programmers to experience the benefits of test-first
+       programming as soon as possible
+     \item Legible as documentation
+     \end{itemiz}
+   \item Flavors
+     \begin{itemiz}
+     \item \url{http://c2.com/cgi/wiki?TestingFramework}
+     \item Full featured (scripting languages)
+     \item Minimalistic (four lines of code)
+     \item Wrap code to utilize scripting language framework
+     \item ``Roll your own''
+     \end{itemiz}
+   \end{itemiz}
+ \end{slide}
+ 
+ \begin{slide}
+   \title{ Unit Testing and Test First Programming}
+   \begin{itemiz}
+   \item Seems trivial at first
+   \item Hard to imagine benefit until the first major refactoring or
+     code simplification is experienced
+   \item Gains power as the number of tests and their coverage increases
+   \item Your own custom debugger
+   \item Provides a clear completion to an implementation task
+   \item Code with a failing test is much easier to fix or extend
+   \item Inventing the tests required is generally harder
+   \item Code that is easy to test is often simpler and easier to
+   read, understand, and extend
+   \item Creating tests brings the design to the forefront; design is
+   difficult, but it is easiest in small increments
+   \end{itemiz}
+ \end{slide}
+   
+ \begin{slide}
+   \title{ Discretization error is a major problem }
+   \begin{itemiz}
+   \item AIAA Drag Prediction Workshop
+     \begin{itemiz}
+     \item A large number of people applied a large number of codes to
+     a single transport configuration
+     \item Large spread in results (largest may be programming errors)
+     \item Grid converged answers where not demonstrated even for large
+       grids (asymptotic range)
+     \item Discretization error explicitly identified in reports 
+     \end{itemiz}
+   \item Multi element high lift and sonic boom calculations
+   \item Preventing the characterization of modeling errors (turbulence models)
+   \item It is often combated by specifying local grid resolutions by
+   hand (requires expert with past experience with similar problems)
+   \item Local error estimates have been useful for adaptation but
+     often fail for problems that are strongly nonlinear or when
+     transported error overcomes the solution
+   \end{itemiz}
+ \end{slide}
+   
+ \begin{slide}
+   \title{ Adjoint solution }
+   \begin{itemiz}
+   \item Linearized flow residual and output quantity at a flow state
+   \item Efficient method for computing derivatives and design
+   \item Existing NASA Langley technology for 3D turbulent design problems
+   \item Shows the linearized impact of a equation source term (error)
+     on an output function
+   \item Indicates the global impact of local errors when combined with
+   local error estimates
+   \end{itemiz}
+ \end{slide}
+
+ \begin{slide}
+   \title{Error Estimation and Adaptation}
+   \begin{itemiz}
+   \item Improve function calculation by predicting and correcting error
+   \item Combining flow and adjoint problems
+   \item Adapt discretization to improve (not reduce) correction
+     \begin{itemiz}
+     \item Error estimate can be computed to high accuracy, but it is
+       a linear correction
+     \end{itemiz}
+   \item Based on the 2-dimensional (2D) work of 
+     \begin{itemiz}
+     \item Venditti and Darmofal (MIT)
+     \item M\"uller and Giles
+     \end{itemiz}
+   \item Intended to avoid manually specifying grid resolution
+     to enable design
+   \item Requested metric is a Mach Hessian scaled by the adjoint
+   error estimate uncertainty
+   \end{itemiz}
+ \end{slide}
+
+ \begin{slide}
+   \title{ Software development Practices }
+   \begin{itemiz}
+   \item Software version control
+   \item Agile software development practices
+   \item Types of software testing
+   \end{itemiz}
+   \title{ Discretization Error }
+   \begin{itemiz}
+   \item Major issue
+   \item Estimation and control by adaptation
+   \end{itemiz}
+   \title{ Adaptation Mechanics }
+   \begin{itemiz}
+   \item Limiting factor on applying output based adaptation to design
+   and turbulent analysis
+   \end{itemiz}
+ \end{slide}
+ 
+\end{document}
