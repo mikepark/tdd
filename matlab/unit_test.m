@@ -123,6 +123,16 @@ if (~(success))
   disp(actual)
 end
 
+function assert_nan(actual,string)
+
+success = isnan(actual);
+
+if (nargin>1)
+  assert(success,string)
+else
+  assert(success,'assert_nan failed')
+end
+
 %! assert(0==1)
 %! assert(0==0)
 
@@ -151,3 +161,7 @@ end
 
 %! assert_within([1 2 ; 3 4],[1.1 2.1 ; 3.1 4.1],0.2,'it failed if you see this')
 %!assert_within([1 2 ; 3 4],[1.1 2.1 ; 3.1 4.1],0.01,'it worked if you see this') 
+
+%! assert_nan(NaN,'it failed if you see this')
+%! assert_nan(0,  'it worked if you see this')
+
