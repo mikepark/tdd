@@ -23,96 +23,23 @@ Mike.Park@NASA.Gov\\
   
   \maketitle
 
-  \section{How is software complexity managed when the required 
-    infrastructure is increasing?}  Entire Computational Fluid
-  Dynamics (CFD) packages have been written by individuals or small
-  teams of researchers. They were developed in an ad hoc manner that
-  was successful for the size of problem that was attempted. CFD
-  packages are continuing to evolve into more and more complex systems
-  to handle more classes of problems. They require larger teams to
-  assemble and maintain. One way to address this complexity is with
-  modern programming practices.
+  \section{TestDriven Development}
+  \subsection{Add a broken test}
+  that covers the campabilit that you want to add or bug you wish to fix
+  \subsection{Run all tests, make sure that new one fails}
+  to test the test and framework
+  \subsection{Write simplest code possible}
+  to satisfy the test
+  \subsection{Run all tests}
+  to make sure that the new code fixes the new test and does not break
+  existing capability
+  \subsection{Refactor}
+  to clean up new code and remove duplication
 
-  \begin{itemize}
-  \item Research capabilities in a ``production'' code
-  \item Software versioning system
-  \item Software development practices (Agile)
-  \item Extreme Programming principles \textbf{communication simplicity feedback courage}
-  \item Extreme Programming \emph{interconnected} practices
-    \begin{itemiz}
-    \item Sustainable pace
-    \item Metaphor
-    \item Coding standard
-    \item Collective ownership
-    \item Continuous integration
-    \item Small releases
-    \item Test-driven development
-    \item Refactoring
-    \item Simple design
-    \item Pair programming
-    \item On-site customer
-    \item Planning game
-    \end{itemiz}
-  \item Software testing
-    \begin{itemiz}
-    \item Programmer's (unit testing)
-    \item Integration
-    \item Regression
-    \item Verification
-    \item Validation
-    \end{itemiz}
-  \item Unit testing
-  \item Test-first programming
-  \item Communication -- Scrum status meetings
-    \begin{itemiz}
-    \item What they {\bf did} since last meeting
-    \item What they will {\bf do} by next meeting
-    \item What got {\bf in the way} (impediments)
-    \end{itemiz}
-  \end{itemize}
- 
-  \section{How is discretization error impacting the solution?}
-  Local error estimates for the discretization error have been used to
-  describe where increased grid resolution is required to improve a
-  solution. These methods have missed the connection between the
-  impact of local errors on global output quantities and how these
-  local errors are transported. The \emph{adjoint} solution provides
-  the critical connection between local errors and global outputs as
-  well as how errors are transported.
+  \section{Why}
 
-  \begin{itemize}
-  \item Discretiztion error is a major problem
-  \item Adjoint solution
-  \item Error estimation
-  \item Work of Venditti and Darmofal
-  \item Sonic boom propagation
-  \item Turbulent transport configuration
-  \end{itemize}
- 
-  \section{How is a grid modified to match a desired resolution?}
-  Mechanics are required to modify the grid to match a specified grid
-  resolution. These mechanics must be able to generate grids with
-  anisotropic resolutions for high Reynolds number flows both near
-  bodies and in structures like wakes and shocks. These mechanics
-  should work seamlessly with the flow solver and error control
-  infrastructure.
-
-  \begin{itemize}
-  \item Limiting factor in applying the output-based adaptation scheme
-  \item The goal is to never need to look at the grid
-  \item Work seamlessly with flow solver and error control: must be
-  robust, sufficient quality, parallel, etc.
-  \item High fidelity surface representation
-  \item ONERA M-6 example
-  \end{itemize}
- 
-  \section{Acknowledgments}
-  \begin{itemiz}
-  \item Dr.~Bil Kleb - \LaTeX~style template and XP definitions 
-  \item Dr.~David Venditti and Dr.~David Darmofal - Guidance and 2D results
-  \item Beth Lee-Rausch - DLR F-6 adaptation
-  \item Entire FUN3D Development Team
-  \end{itemiz}
+  Custom debugger\\
+  Enables team development
 
   \section{Resources}
 
