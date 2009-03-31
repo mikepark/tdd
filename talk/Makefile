@@ -7,7 +7,7 @@
 
 REPORT = tdd_talk tdd_handout
 
-SHOW = tdd_talk
+SHOW = tdd_handout
 
 FIGS = 
 EPSS = $(FIGS:%=%.eps)
