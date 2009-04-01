@@ -48,9 +48,10 @@ Mike.Park@NASA.Gov\\
   Enables team development
 
   \section{MATLAB Example}
-  all lines in a script beginning with \texttt{\%!} are eval. 
+  all lines in a script beginning with \texttt{\%!} are \texttt{eval}'ed. 
   The functions \texttt{assert}, \texttt{assert\_equal}, 
-  \texttt{assert\_within}, and \texttt{assert\_nan} are defined
+  \texttt{assert\_within}, and \texttt{assert\_nan} are defined.
+  see \texttt{unit\_test.m} for more examples.
   \subsection{Failing test}
   \begin{verbatim}
 %! assert_equal(1,simple_fail)
@@ -64,10 +65,6 @@ y = 1
 
 %! assert_equal(1,simple_pass)
   \end{verbatim}
-
-
-
-
   \section{Resources}
 
   \url{http://en.wikipedia.org/wiki/Test-driven_development}
