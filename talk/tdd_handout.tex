@@ -2,6 +2,7 @@
 
 \usepackage{url}
 \usepackage{array}
+\usepackage{verbatim}
 
 \newenvironment{itemiz}%
   {\begin{list}{}{\raggedright
@@ -41,6 +42,27 @@ Mike.Park@NASA.Gov\\
   Custom debugger\\
   Enables team development
 
+  \section{MATALB Example}
+  all lines in a script begining with \texttt{\%!} are eval. 
+  The fucntions \texttt{assert}, \texttt{assert\_equal}, 
+  \texttt{assert\_within}, and \texttt{assert\_nan} are defined
+  \subsection{Failing test}
+  \begin{verbatim}
+%! assert_equal(1,simple_fail)
+  \end{verbatim}
+  The function \texttt{simple\_fail} is not defined 
+  \subsection{Passing test}
+  \begin{verbatim}
+function y = simple_pass()
+
+y = 1
+
+%! assert_equal(1,simple_pass)
+  \end{verbatim}
+
+
+
+
   \section{Resources}
 
   \url{http://en.wikipedia.org/wiki/Test-driven_development}
@@ -57,10 +79,9 @@ Mike.Park@NASA.Gov\\
   \url{https://www.cvshome.org/}\
 
   \subsection{Books}
- Andrew Hunt and David Thomas,
- \textit{The Pragmatic Programmer: From Journeyman to Master.}\\
-Tom Demarco and Timothy Lister,
-\textit{Peopleware : Productive Projects and Teams}, 2nd Ed.
-  
+  Andrew Hunt and David Thomas,
+  \textit{The Pragmatic Programmer: From Journeyman to Master.}\\
+  Tom Demarco and Timothy Lister,
+  \textit{Peopleware : Productive Projects and Teams}, 2nd Ed.
 
 \end{document}
